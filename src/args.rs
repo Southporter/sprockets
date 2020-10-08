@@ -47,6 +47,9 @@ pub fn parse_args() -> Config {
         )
         .arg(
             Arg::with_name("protocol")
+                .short("p")
+                .takes_value(true)
+                .possible_values(&["tcp", "udp", "unix"])
                 .help("Protocol used to connect to the address and port. One of TCP, UDP, or UNIX"),
         )
         .get_matches();
