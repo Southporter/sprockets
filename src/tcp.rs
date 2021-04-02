@@ -1,11 +1,11 @@
 use crate::args::Config;
 use crate::repl::{self, Interactor};
-use std::io::{Read, Write};
+use std::io::{BufRead, Write};
 use std::net::TcpStream;
 
 pub fn start_tcp<R, W>(config: Config, interactor: &mut Interactor<R, W>) -> std::io::Result<()>
 where
-    R: Read,
+    R: BufRead,
     W: Write,
 {
     let mut conn = TcpStream::connect(config.address)?;
